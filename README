@@ -3,15 +3,20 @@ This project is about porting the default Android DownloadProvider.
 Now it almost works,you can use eclipse to import it.
 
 1.net.impjq.providers.downloads
-This is the source code of the Android DownloadProvider,I have remove some code to make it work,such as DRM,MediaScanner and so on,but the core function is OK.
+This is the source code of the Android DownloadProvider,
+I have remove some code to make it work,
+such as DRM,MediaScanner and so on,but the core function is OK.
 
 2.net.impjq.download
 This is just a demo,you can refer to MyDownload to study how to use it.
 
 3.some notes
-IN DownloadNotification.java,search RemoteViews,you will see "net.impjq.download",this must be the Package Name,otherwise the Notification will not work correctly.
+IN DownloadNotification.java,search RemoteViews,you will see "net.impjq.download",
+this MUST be the Package Name,otherwise the Notification will not work correctly.
 
-In Downloads.java,search CONTENT_URI,you can change "bookfm" to what you want,but don't change "/download",and also remember to change the AndroidManifest.xml:the authorities of the Provider.
+In Downloads.java,search CONTENT_URI,you can change "bookfm" to what you want,
+but CAN NOT change "/download",and also remember to change the AndroidManifest.xml:
+the authorities of the Provider.
 
 The files will be download to this directory:/sdcard/download/
 
