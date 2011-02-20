@@ -13,6 +13,8 @@ IN DownloadNotification.java,search RemoteViews,you will see "net.impjq.download
 
 In Downloads.java,search CONTENT_URI,you can change "bookfm" to what you want,but don't change "/download",and also remember to change the AndroidManifest.xml:the authorities of the Provider.
 
+The files will be download to this directory:/sdcard/download/
+
 If you need it,just enjoy it.
 
 Contact me:
