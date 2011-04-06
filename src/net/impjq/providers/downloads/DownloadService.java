@@ -590,6 +590,7 @@ public class DownloadService extends Service {
         synchronized (info) {
             info.mControl = cursor.getInt(cursor.getColumnIndexOrThrow(
                     Downloads.Impl.COLUMN_CONTROL));
+            Log.i("[pjq]DownloadService", "info.mControl="+info.mControl);
         }
         int newStatus = cursor.getInt(statusColumn);
         if (!Downloads.Impl.isStatusCompleted(info.mStatus) &&

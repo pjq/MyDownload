@@ -25,7 +25,7 @@ public class Utils {
      */
     public static void log(String TAG, String msg) {
         if (DEBUG_ENABLE) {
-            Log.i(TAG, msg);
+            Log.i("[pjq]"+TAG, msg);
         }
     }
 

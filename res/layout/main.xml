@@ -1,15 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
-	<TextView android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:text="@string/hello" />
-	<EditText android:id="@+id/url_input_edittext"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
-	<Button android:text="start" android:id="@+id/start_download_button"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-	<ProgressBar android:id="@+id/download_progress_bar"
-		style="?android:attr/progressBarStyleHorizontal" android:layout_width="320dip"
-		android:layout_height="wrap_content" android:max="100"
-		android:progress="0" android:secondaryProgress="0" />
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/hello" />
+	<EditText
+		android:id="@+id/url_input_edittext"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"></EditText>
+	<Button
+		android:text="start"
+		android:id="@+id/start_download_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"></Button>
+	<Button
+		android:text="Cancel"
+		android:id="@+id/cancel_download_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"></Button>
+	<Button
+		android:text="Pause"
+		android:id="@+id/pause_download_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"></Button>
+	<Button
+		android:text="Resume"
+		android:id="@+id/resume_download_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"></Button>
+	<ProgressBar
+		android:id="@+id/download_progress_bar"
+		style="?android:attr/progressBarStyleHorizontal"
+		android:layout_width="320dip"
+		android:layout_height="wrap_content"
+		android:max="100"
+		android:progress="0"
+		android:secondaryProgress="0" />
 </LinearLayout>

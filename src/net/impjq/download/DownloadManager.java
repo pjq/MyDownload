@@ -13,6 +13,7 @@ import android.os.Handler;
 public class DownloadManager {
 	private static final String TAG=DownloadManager.class.getSimpleName();
 	private Context mContext;	
+	private Uri mUri;
 		
     /**
      * The {@link DownloadProgressListener mDownloadProgressListener}
@@ -56,10 +57,55 @@ public class DownloadManager {
 
         Uri uri = mContext.getContentResolver().insert(Downloads.CONTENT_URI, values);
 
+        mUri=uri;
         Utils.log(TAG, "Insert to Download Provider,uri=" + uri);
 
         setDownloadsChangeObserver(uri);
     }
+    
+    
+    public void cancelDownload(){
+    	Utils.log(TAG, "Cancel download,mUri=" + mUri);
+    	
+    	cancelDownload(mUri);
+    }
+    
+    public void cancelDownload(Uri uri){
+    	Utils.log(TAG, "Cancel download,uri=" + uri);
+    	
+    	ContentValues values = new ContentValues();
+    	values.put(Downloads.Impl.COLUMN_CONTROL, Downloads.Impl.STATUS_CANCELED);    	
+    	mContext.getContentResolver().update(uri, values, null, null);
+    }
+    
+    public void pauseDownload(){
+    	Utils.log(TAG, "Pause download,mUri=" + mUri);
+    	
+    	pauseDownload(mUri);
+    }
+    
+    public void pauseDownload(Uri uri){
+    	Utils.log(TAG, "Pause download,uri=" + uri);
+    	
+    	ContentValues values = new ContentValues();
+    	values.put(Downloads.Impl.COLUMN_CONTROL, Downloads.Impl.CONTROL_PAUSED);    	
+    	mContext.getContentResolver().update(uri, values, null, null);
+    }
+    
+    public void resumeDownload(){
+    	Utils.log(TAG, "Resume download,mUri=" + mUri);
+    	
+    	resumeDownload(mUri);
+    }
+    
+    public void resumeDownload(Uri uri){
+    	Utils.log(TAG, "Resume download,uri=" + uri);
+    	
+    	ContentValues values = new ContentValues();
+    	values.put(Downloads.Impl.COLUMN_CONTROL, Downloads.Impl.CONTROL_RUN);    	
+    	mContext.getContentResolver().update(uri, values, null, null);
+    }
+
 
     /**
      * Set the DownloadsChangeObserver
@@ -107,7 +153,10 @@ public class DownloadManager {
 
             // Call the listener,then can get the details and show in the
             // Activity which call it.
-            mDownloadProgressListener.onChange(c);
+            if (null!=mDownloadProgressListener) {
+            	   mDownloadProgressListener.onChange(c);
+			}
+         
         }
     }
     

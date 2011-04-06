@@ -14,13 +14,16 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int appIcon=0x7f050003;
-        public static final int description=0x7f050006;
-        public static final int download_progress_bar=0x7f050002;
-        public static final int progress_bar=0x7f050007;
-        public static final int progress_text=0x7f050004;
+        public static final int appIcon=0x7f050006;
+        public static final int cancel_download_button=0x7f050002;
+        public static final int description=0x7f050009;
+        public static final int download_progress_bar=0x7f050005;
+        public static final int pause_download_button=0x7f050003;
+        public static final int progress_bar=0x7f05000a;
+        public static final int progress_text=0x7f050007;
+        public static final int resume_download_button=0x7f050004;
         public static final int start_download_button=0x7f050001;
-        public static final int title=0x7f050005;
+        public static final int title=0x7f050008;
         public static final int url_input_edittext=0x7f050000;
     }
     public static final class layout {

@@ -30,14 +30,18 @@ public class MyDownload extends Activity implements OnClickListener {
 	Context mContext;
 	EditText mUrlInputEditText;
 	Button mStartDownloadButton;
+	Button mCancelButton;
+	Button mPauseButton;
+	Button mResumeButton;
 	ProgressBar mDownloadProgressBar;
+	DownloadManager mDownloadManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		mContext=this;
+		mContext = this;
 
 		init();
 	}
@@ -47,12 +51,24 @@ public class MyDownload extends Activity implements OnClickListener {
 
 		mUrlInputEditText = (EditText) findViewById(R.id.url_input_edittext);
 		mStartDownloadButton = (Button) findViewById(R.id.start_download_button);
+		mCancelButton = (Button) findViewById(R.id.cancel_download_button);
+		mPauseButton = (Button) findViewById(R.id.pause_download_button);
+		mResumeButton = (Button) findViewById(R.id.resume_download_button);
 		mDownloadProgressBar = (ProgressBar) findViewById(R.id.download_progress_bar);
 
 		mStartDownloadButton.setOnClickListener(this);
+		mCancelButton.setOnClickListener(this);
+		mPauseButton.setOnClickListener(this);
+		mResumeButton.setOnClickListener(this);
+
 		mUrlInputEditText
 				.setText("http://tools.impjq.net/Dropbox%201.0.10.exe");
-		 mUrlInputEditText.setText("http://v.youku.com/v_show/id_XMjM5MDgyNDEy.html");
+		//mUrlInputEditText
+		//		.setText("http://v.youku.com/v_show/id_XMjM5MDgyNDEy.html");
+
+		mDownloadProgressListener = createDownloadProgressListener();
+		mDownloadManager = new DownloadManager(mContext);
+		mDownloadManager.setDownloadProgressListener(mDownloadProgressListener);
 	}
 
 	@Override
@@ -67,6 +83,21 @@ public class MyDownload extends Activity implements OnClickListener {
 
 			break;
 		}
+		
+		case R.id.cancel_download_button:{
+			mDownloadManager.cancelDownload();
+			break;
+		}
+		
+		case R.id.pause_download_button:{
+			mDownloadManager.pauseDownload();
+			break;
+		}
+		
+		case R.id.resume_download_button:{
+			mDownloadManager.resumeDownload();		
+			break;		
+		}
 
 		default:
 			break;
@@ -80,13 +111,11 @@ public class MyDownload extends Activity implements OnClickListener {
 
 	private void startDownload() {
 		// TODO Auto-generated method stub
-		mDownloadProgressListener = createDownloadProgressListener();
+		
 
 		String url = mUrlInputEditText.getText().toString();
 
-		DownloadManager myDownload = new DownloadManager(mContext);
-		myDownload.setDownloadProgressListener(mDownloadProgressListener);
-		myDownload.insertDownload(url, null);
+		mDownloadManager.insertDownload(url, null);
 	}
 
 	private void start() {

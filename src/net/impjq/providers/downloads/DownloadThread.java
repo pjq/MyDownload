@@ -626,7 +626,7 @@ http_request_loop:
                                 // Log.d(Constants.TAG, "canceled id " + mInfo.mId);
                             }
                             finalStatus = Downloads.Impl.STATUS_CANCELED;
-                            break http_request_loop;
+							break http_request_loop;
                         }
                     }
                     if (Constants.LOGV) {
