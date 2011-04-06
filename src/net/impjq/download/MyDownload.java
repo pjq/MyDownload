@@ -52,7 +52,7 @@ public class MyDownload extends Activity implements OnClickListener {
 		mStartDownloadButton.setOnClickListener(this);
 		mUrlInputEditText
 				.setText("http://tools.impjq.net/Dropbox%201.0.10.exe");
-		// mUrlInputEditText.setText("http://v.youku.com/v_show/id_XMjM5MDgyNDEy.html");
+		 mUrlInputEditText.setText("http://v.youku.com/v_show/id_XMjM5MDgyNDEy.html");
 	}
 
 	@Override

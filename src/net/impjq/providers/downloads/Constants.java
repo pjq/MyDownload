@@ -154,4 +154,10 @@ public class Constants {
     /** Enable super-verbose logging */
     private static final boolean LOCAL_LOGVV = true;
     public static final boolean LOGVV = LOCAL_LOGVV && LOGV;
+    
+    /**
+     * Add by pengjianqing@gmail.com,control whether need to auto start the {@link DownloadService}.
+     */
+    public static final boolean START_WHEN_BOOT_COMPLETE=false;
+    public static final boolean START_WHEN_NETWORK_AVAILABLE=false;
 }

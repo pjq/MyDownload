@@ -43,7 +43,11 @@ public class DownloadReceiver extends BroadcastReceiver {
             if (Constants.LOGVV) {
                 Log.v(Constants.TAG, "Receiver onBoot");
             }
-            context.startService(new Intent(context, DownloadService.class));
+            
+            if (Constants.START_WHEN_BOOT_COMPLETE) {
+            	 context.startService(new Intent(context, DownloadService.class));				
+			}
+           
         } else if (intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
             if (Constants.LOGVV) {
                 Log.v(Constants.TAG, "Receiver onConnectivity");
@@ -58,7 +62,10 @@ public class DownloadReceiver extends BroadcastReceiver {
                         Log.i(Constants.TAG, "Broadcast: Network Up, Actually Down");
                     }
                 }
-                context.startService(new Intent(context, DownloadService.class));
+                if (Constants.START_WHEN_NETWORK_AVAILABLE) {
+                	context.startService(new Intent(context, DownloadService.class));
+				}
+                
             } else {
                 if (Constants.LOGX) {
                     if (Helpers.isNetworkAvailable(context)) {

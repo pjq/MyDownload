@@ -18,7 +18,9 @@ In Downloads.java,search CONTENT_URI,you can change "bookfm" to what you want,
 but CAN NOT change "/download",and also remember to change the AndroidManifest.xml:
 the authorities of the Provider.
 
+4.default download directory
 The files will be download to this directory:/sdcard/download/
+you can change Constants.java:DEFAULT_DL_SUBDIR to what you want. 
 
 If you need it,just enjoy it.
 
