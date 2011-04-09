@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello"></string>
-    <string name="app_name">MyDownload</string>      
+    <string name="app_name">MyDownload</string>     
+    
+    
+    <string name="download_menu_pause">Pause download</string> 
+    <string name="download_menu_resume">Resume download</string> 
+     
     
 </resources>

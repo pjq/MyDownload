@@ -8,52 +8,533 @@
 package net.impjq.download;
 
 public final class R {
+    public static final class array {
+        /**  Bookmarks 
+         */
+        public static final int bookmarks=0x7f07000a;
+        /**  Plugin options 
+         */
+        public static final int pref_content_plugins_choices=0x7f070000;
+        public static final int pref_content_plugins_values=0x7f070001;
+        /**  Options in the Default encoding dialog box 
+ TODO: We should add a lot more encodings.  
+         */
+        public static final int pref_default_text_encoding_choices=0x7f070008;
+        /**  Do not translate. Actual encoding values. Must be valid text encodings understandable from WebKit. 
+         */
+        public static final int pref_default_text_encoding_values=0x7f070009;
+        /**  Settings default zoom options; appear in default zoom dialog box 
+         */
+        public static final int pref_default_zoom_choices=0x7f070004;
+        /**  Do not translate 
+         */
+        public static final int pref_default_zoom_values=0x7f070005;
+        /**  Do not tranlsate.  Development option 
+         */
+        public static final int pref_development_ua_choices=0x7f070006;
+        /**  Do not tranlsate.  Development option 
+         */
+        public static final int pref_development_ua_values=0x7f070007;
+        /**  Settings text size options; appear in Text size dialog box 
+         */
+        public static final int pref_text_size_choices=0x7f070002;
+        /**  Do not translate 
+         */
+        public static final int pref_text_size_values=0x7f070003;
+        public static final int pref_user_agent=0x7f07000b;
+        public static final int pref_user_agent_values=0x7f07000c;
+    }
     public static final class attr {
     }
+    public static final class color {
+        public static final int black=0x7f040007;
+        public static final int geolocation_permissions_prompt_background=0x7f040008;
+        public static final int password_edit=0x7f040003;
+        public static final int password_text=0x7f040002;
+        public static final int ssl_text_label=0x7f040004;
+        public static final int ssl_text_value=0x7f040005;
+        public static final int username_edit=0x7f040001;
+        public static final int username_text=0x7f040000;
+        public static final int white=0x7f040006;
+    }
     public static final class drawable {
-        public static final int icon=0x7f020000;
+        public static final int app_web_browser_sm=0x7f020000;
+        public static final int fav_icn_background=0x7f020001;
+        public static final int icon=0x7f020002;
+        public static final int ssl_icon=0x7f020003;
     }
     public static final class id {
-        public static final int appIcon=0x7f050006;
-        public static final int cancel_download_button=0x7f050002;
-        public static final int description=0x7f050009;
-        public static final int download_progress_bar=0x7f050005;
-        public static final int pause_download_button=0x7f050003;
-        public static final int progress_bar=0x7f05000a;
-        public static final int progress_text=0x7f050007;
-        public static final int resume_download_button=0x7f050004;
-        public static final int start_download_button=0x7f050001;
-        public static final int title=0x7f050008;
-        public static final int url_input_edittext=0x7f050000;
+        public static final int appIcon=0x7f090012;
+        public static final int cancel_download_button=0x7f09000e;
+        public static final int complete_date=0x7f090003;
+        public static final int complete_text=0x7f090004;
+        public static final int description=0x7f090013;
+        public static final int domain=0x7f090002;
+        public static final int download_icon=0x7f090000;
+        public static final int download_menu_cancel=0x7f090019;
+        public static final int download_menu_cancel_all=0x7f090015;
+        public static final int download_menu_clear=0x7f090016;
+        public static final int download_menu_delete=0x7f090018;
+        public static final int download_menu_open=0x7f090017;
+        public static final int download_menu_pause=0x7f09001a;
+        public static final int download_menu_resume=0x7f09001b;
+        public static final int download_progress=0x7f090005;
+        public static final int download_progress_bar=0x7f090011;
+        public static final int download_title=0x7f090001;
+        public static final int empty=0x7f090007;
+        public static final int favicon=0x7f090008;
+        public static final int pause_download_button=0x7f09000f;
+        public static final int progress_bar=0x7f090014;
+        public static final int progress_text=0x7f090006;
+        public static final int resume_download_button=0x7f090010;
+        public static final int star=0x7f09000b;
+        public static final int start_download_button=0x7f09000d;
+        public static final int title=0x7f090009;
+        public static final int url=0x7f09000a;
+        public static final int url_input_edittext=0x7f09000c;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
-        public static final int status_bar_ongoing_event_progress_bar=0x7f030001;
+        public static final int download_item=0x7f030000;
+        public static final int downloads_page=0x7f030001;
+        public static final int history_header=0x7f030002;
+        public static final int history_item=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int no_downloads=0x7f030005;
+        public static final int status_bar_ongoing_event_progress_bar=0x7f030006;
+    }
+    public static final class menu {
+        public static final int downloadhistory=0x7f080000;
+        public static final int downloadhistorycontextfailed=0x7f080001;
+        public static final int downloadhistorycontextfinished=0x7f080002;
+        public static final int downloadhistorycontextrunning=0x7f080003;
+    }
+    public static final class plurals {
+        /**  Displayed on the Find dialog to display the number of matches
+         found in the current page. 
+         */
+        public static final int matches_found=0x7f060000;
     }
     public static final class string {
+        /**  The label on the "sign in" button 
+         */
+        public static final int action=0x7f050011;
+        /**  Name of menu item which brings up a list of the currently active tabs 
+         */
+        public static final int active_tabs=0x7f050008;
+        /**  Verb placed in front of a screenshot of a web page that, when clicked,
+            will add that page to bookmarks 
+         */
+        public static final int add_bookmark_short=0x7f0500bc;
+        /**  Displayed at the top of the bookmarks page.  When clicked, it bookmarks the page the browser is currently showing 
+         */
+        public static final int add_new_bookmark=0x7f0500bb;
+        /**  Toast shown when a history item's star is clicked, converting it to a bookmark 
+         */
+        public static final int added_to_bookmarks=0x7f05000c;
+        /**  Label for a button to allow a particular popup window to open 
+         */
+        public static final int allow=0x7f0500c3;
         /**  This is the name of the Download Manager application. 
          */
-        public static final int app_label=0x7f040002;
-        public static final int app_name=0x7f040001;
+        public static final int app_label=0x7f050111;
+        public static final int app_name=0x7f050001;
+        /**  The name of the application. 
+         */
+        public static final int application_name=0x7f050004;
+        /**  Pop-up window dialog 
+ Title for a dialog informing the user that the site is attempting to
+            display a popup window 
+         */
+        public static final int attention=0x7f0500c1;
+        /**  Menu item to go back to the previous page 
+         */
+        public static final int back=0x7f05002e;
+        /**  Label for a button to disallow a particular popup from opening 
+         */
+        public static final int block=0x7f0500c4;
+        /**  Error that appears in the Bookmark dialog when user selects OK with a URL of a type we cannot bookmark 
+         */
+        public static final int bookmark_cannot_save_url=0x7f050043;
+        /**  Error that appears in the title of Bookmark dialog when user selects OK with empty Name field 
+         */
+        public static final int bookmark_needs_title=0x7f050040;
+        /**  Error that appears in the title of Bookmark dialog when user selects OK with empty Location field 
+         */
+        public static final int bookmark_needs_url=0x7f050041;
+        /**  Toast informing the user that their action to save a bookmark did not succeed 
+         */
+        public static final int bookmark_not_saved=0x7f05003e;
+        /**  Menu item in the page that displays all bookmarks. It brings up a
+            dialog that allows the user to bookmark the page that the browser is
+            currently on, but is not visible because the bookmarks page is 
+            showing. 
+         */
+        public static final int bookmark_page=0x7f050045;
+        /**  Toast informing the user that their action to save a bookmark has succeeded 
+         */
+        public static final int bookmark_saved=0x7f05003d;
+        /**  Error that appears in the title of Bookmark dialog when user selects OK with invalid URL 
+         */
+        public static final int bookmark_url_not_valid=0x7f050042;
+        /**  Menu item to open the bookmarks page. This is a shorter version that
+            is displayed with an icon 
+         */
+        public static final int bookmarks=0x7f050050;
+        /**  The name of the bookmarks and history search suggestion source.  
+         */
+        public static final int bookmarks_search=0x7f050012;
+        /**  Title for a dialog displayed when the browser runs into a file label
+            error 
+         */
+        public static final int browserFrameFileErrorLabel=0x7f0500b3;
+        /**  Dialog box title 
+         */
+        public static final int browserFrameFormResubmitLabel=0x7f0500b4;
+        /**  Dialog box message 
+         */
+        public static final int browserFrameFormResubmitMessage=0x7f0500b5;
+        /**  Title for a dialog displayed when the browser has a data connectivity
+            problem 
+         */
+        public static final int browserFrameNetworkErrorLabel=0x7f0500b2;
+        /**  Title displayed when the bookmarks page is shown 
+         */
+        public static final int browser_bookmarks_page_bookmarks_text=0x7f050067;
+        /**  History screen title; appears in title bar 
+         */
+        public static final int browser_history=0x7f0500b9;
+        /**  Label for a cancel button.  It is used for multiple cancel buttons in different contexts 
+         */
+        public static final int cancel=0x7f050013;
+        /**  Displayed with a file picker to choose a file to upload 
+         */
+        public static final int choose_upload=0x7f050005;
+        /**  Title of the dialog used for selecting the application that should be
+            used for sharing a link (e.g. Gmail or another app). See also
+            contextmenu_sharelink above 
+         */
+        public static final int choosertitle_sharevia=0x7f050064;
+        /**  Used as the title of dialogs in the Browser Settings confirming that
+            the user wants to clear (cache, history, or cookie data) 
+         */
+        public static final int clear=0x7f050065;
+        /**  Menu item 
+         */
+        public static final int clear_history=0x7f0500b8;
+        /**  Label for an information field on an SSL Certificate Dialog 
+         */
+        public static final int common_name=0x7f050024;
+        /**  Context Menu item to add the selected phone number to the address book.
+            
+         */
+        public static final int contextmenu_add_contact=0x7f050061;
+        /**  Context Menu item to create a bookmark for the url of the currently
+            selected link. 
+         */
+        public static final int contextmenu_bookmark_thislink=0x7f050058;
+        /**  Context Menu item 
+         */
+        public static final int contextmenu_copy=0x7f05005b;
+        /**  Context Menu item to copy the url of the selected link to the
+            clipboard 
+         */
+        public static final int contextmenu_copylink=0x7f05005c;
+        /**  Context Menu item to open the dialer app with the selected phone number
+            
+         */
+        public static final int contextmenu_dial_dot=0x7f050060;
+        /**  Context Menu item to save the image to external storage 
+         */
+        public static final int contextmenu_download_image=0x7f05005d;
+        /**  Context Menu item to show the currently selected address in the Maps
+            application 
+         */
+        public static final int contextmenu_map=0x7f050063;
+        /**  Context Menu item open the currently selected link in the current
+            window.
+         */
+        public static final int contextmenu_openlink=0x7f050056;
+        /**  Context Menu item to open the currently selected link in a new
+            window. 
+         */
+        public static final int contextmenu_openlink_newwindow=0x7f050057;
+        /**  Context Menu item to save the webpage referred to by this link to the
+            SD card (external storage) 
+         */
+        public static final int contextmenu_savelink=0x7f050059;
+        /**  Context Menu item to send an email using the selected email address.
+         */
+        public static final int contextmenu_send_mail=0x7f050062;
+        /**  Context Menu item to set the image as the home screen wallpaper 
+         */
+        public static final int contextmenu_set_wallpaper=0x7f05005f;
+        /**  Context Menu item to send the url of the selected link to someone else,
+            via Gmail or another app 
+         */
+        public static final int contextmenu_sharelink=0x7f05005a;
+        /**  Context Menu item to view the image by itself in the browser 
+         */
+        public static final int contextmenu_view_image=0x7f05005e;
+        /**  Context menu item for copying the url of the current page from the
+            title bar 
+         */
+        public static final int copy_page_url=0x7f050054;
+        /**  Context menu item to create a shortcut to the bookmark on the desktop 
+         */
+        public static final int create_shortcut_bookmark=0x7f050037;
+        /**  Summary text under the New Bookmark item on the Bookmarks screen.
+            Tells the user that if they select this item, it will bring up a
+            dialog to bookmark the page that the browser is currently viewing,
+            though it is not currently being displayed, since they are viewing
+            the bookmarks screen. 
+         */
+        public static final int current_page=0x7f050048;
+        /**  Title of a confirmation dialog when the user deletes a bookmark
+         */
+        public static final int delete_bookmark=0x7f050044;
+        /**  Confirmation dialog message confirming that the user wishes to delete
+            the bookmark they selected for deletion 
+         */
+        public static final int delete_bookmark_warning=0x7f050049;
+        /**  Button label to cancel saving a bookmark. 
+         */
+        public static final int do_not_save=0x7f050031;
+        /**  Confirmation dialog message 
+         */
+        public static final int download_cancel_dlg_msg=0x7f0500d1;
+        /**  Confirmation dialog title 
+         */
+        public static final int download_cancel_dlg_title=0x7f0500d0;
+        /**  Message in the list of items which have received download requests
+            telling their status.  This message states that the download has
+            been canceled 
+         */
+        public static final int download_canceled=0x7f0500e3;
+        /**  Confirmation dialog title 
+         */
+        public static final int download_delete_file=0x7f0500d2;
+        /**  the following download_xxxx matches the download manager state, ie Downloads.Status 
+         */
+        public static final int download_error=0x7f0500dd;
+        /**  Title for a dialog informing the user that the download has failed 
+         */
+        public static final int download_failed_generic_dlg_title=0x7f0500d5;
+        /**  Message in the list of items which have received download requests
+            telling their status.  This message states that the download did not
+            finish because there is not enough storage for the file 
+         */
+        public static final int download_file_error=0x7f0500e5;
+        /**  Dialog message 
+         */
+        public static final int download_file_error_dlg_msg=0x7f0500d4;
+        /**  Dialog title 
+         */
+        public static final int download_file_error_dlg_title=0x7f0500d3;
+        /**  Message in the list of items which have received download requests
+            telling their status.  This message states that the item cannot be
+            downloaded because it cannot determine the length of the item 
+         */
+        public static final int download_length_required=0x7f0500e6;
+        /**  Context menu item in Download history screen 
+         */
+        public static final int download_menu_cancel=0x7f0500ce;
+        /**  Menu item 
+         */
+        public static final int download_menu_cancel_all=0x7f0500cf;
+        /**  Context menu item on Download history screen 
+         */
+        public static final int download_menu_clear=0x7f0500cc;
+        /**  Context menu item in Download history screen 
+         */
+        public static final int download_menu_delete=0x7f0500cd;
+        /**  Context menu item on Download history screen 
+         */
+        public static final int download_menu_open=0x7f0500cb;
+        public static final int download_menu_pause=0x7f050002;
+        public static final int download_menu_resume=0x7f050003;
+        /**  Title for a dialog informing the user that there is no application on
+            the phone that can open the file that was downloaded 
+         */
+        public static final int download_no_application_title=0x7f0500da;
+        /**  Dialog message 
+         */
+        public static final int download_no_sdcard_dlg_msg=0x7f0500d7;
+        /**  Dialog title 
+         */
+        public static final int download_no_sdcard_dlg_title=0x7f0500d6;
+        /**  Message in the list of items which have received download requests
+            telling their status.  This message states that the download will
+            not happen because the content is not supported by the phone 
+         */
+        public static final int download_not_acceptable=0x7f0500e4;
+        /**  Message in the list of items which have received download requests
+            telling their status.  This message states that the download has not
+            yet begun 
+         */
+        public static final int download_pending=0x7f0500e0;
+        /**  Message in the list of items which have received download requests
+            telling their status.  This message states that the download is
+            waiting for a network connection to continue 
+         */
+        public static final int download_pending_network=0x7f0500e1;
+        /**  Message in the list of items which have received download requests
+            telling their status.  This message states that the download was
+            interrupted and cannot be resumed 
+         */
+        public static final int download_precondition_failed=0x7f0500e7;
+        /**  Appears in Download history screen while an item is being downloaded 
+         */
+        public static final int download_running=0x7f0500df;
+        /**  Message in the list of items which have received download requests
+            telling their status.  This message states that the download has
+            paused to wait for a network connection 
+         */
+        public static final int download_running_paused=0x7f0500e2;
+        /**  Message for a dialog informing the user that the SD card used for
+            external storage is busy so they cannot download anything.  Informs
+            the user how to enable SD card storage 
+         */
+        public static final int download_sdcard_busy_dlg_msg=0x7f0500d9;
+        /**  Title for a dialog informing the user that the SD card used for
+            external storage is busy so they cannot download anything 
+         */
+        public static final int download_sdcard_busy_dlg_title=0x7f0500d8;
+        /**  Appears in Download history screen after an item has downloaded, included item size 
+         */
+        public static final int download_success=0x7f0500de;
+        /**  Download History UI strings 
+         */
+        public static final int download_title=0x7f0500c9;
+        /**  Download history screen string
+         */
+        public static final int download_unknown_filename=0x7f0500ca;
         /**  This is the title that is used when displaying the notification
     for a download that doesn't have a title associated with it. 
          */
-        public static final int download_unknown_title=0x7f04000b;
-        public static final int hello=0x7f040000;
+        public static final int download_unknown_title=0x7f05011a;
+        /**  Do not translate.  Testing only 
+         */
+        public static final int dump_counters=0x7f0500e9;
+        /**  Do not translate.  Testing only 
+         */
+        public static final int dump_nav=0x7f0500e8;
+        /**  Menu item on the bookmarks page, to edit an existing bookmark 
+         */
+        public static final int edit_bookmark=0x7f050036;
+        /**  Appears on History screen if no history is found 
+         */
+        public static final int empty_history=0x7f0500ba;
+        public static final int error_console_eval_button_text=0x7f05010c;
+        public static final int error_console_eval_text_hint=0x7f05010b;
+        public static final int error_console_header_text_maximized=0x7f05010a;
+        public static final int error_console_header_text_minimized=0x7f050109;
+        /**  Label for an information field on an SSL Certificate Dialog 
+         */
+        public static final int expires_on=0x7f05002a;
+        /**  Menu item that opens up a dialog which allows the user to provide a
+            string and search for it on the page. 
+         */
+        public static final int find_dot=0x7f05004c;
+        /**  Menu item to go to the next page (only useful if the user has previously hit back.) 
+         */
+        public static final int forward=0x7f05002f;
+        public static final int geolocation_permissions_prompt_dont_share=0x7f0500f8;
+        /**  Geolocation 
+ Permissions prompt 
+         */
+        public static final int geolocation_permissions_prompt_message=0x7f0500f6;
+        public static final int geolocation_permissions_prompt_remember=0x7f0500f9;
+        public static final int geolocation_permissions_prompt_share=0x7f0500f7;
+        /**  Permissions prompt toast 
+         */
+        public static final int geolocation_permissions_prompt_toast_allowed=0x7f0500fa;
+        public static final int geolocation_permissions_prompt_toast_disallowed=0x7f0500fb;
+        public static final int geolocation_settings_page_dialog_cancel_button=0x7f050102;
+        public static final int geolocation_settings_page_dialog_message=0x7f050100;
+        public static final int geolocation_settings_page_dialog_ok_button=0x7f050101;
+        /**  Settings page dialog 
+         */
+        public static final int geolocation_settings_page_dialog_title=0x7f0500ff;
+        public static final int geolocation_settings_page_summary_allowed=0x7f0500fd;
+        public static final int geolocation_settings_page_summary_not_allowed=0x7f0500fe;
+        /**  Settings page, Advanced Settings -> Website settings -> <origin> 
+         */
+        public static final int geolocation_settings_page_title=0x7f0500fc;
+        /**  Menu item to open a dialog which allows the user to enter a url or do search
+         */
+        public static final int goto_dot=0x7f05004b;
+        public static final int hello=0x7f050000;
+        /**  Menu item to display the History of previously visited pages 
+         */
+        public static final int history=0x7f050052;
+        /**  The default homepage. If it starts with "http://www.google" and the
+            user signs up the device with a Google sites account, the site's
+            domain will be appended. 
+         */
+        public static final int homepage_base=0x7f0500ea;
+        /**  Toast confirming that the homepage has been set 
+         */
+        public static final int homepage_set=0x7f05003f;
+        /**  Initial value in Location field in Bookmark dialog box 
+         */
+        public static final int http=0x7f050034;
+        /**  Name of menu item of a new tab.  Also used in the title bar when displaying a new tab 
+         */
+        public static final int incog_tab=0x7f050007;
+        /**  Label for an information field on an SSL Certificate Dialog 
+         */
+        public static final int issued_by=0x7f050027;
+        /**  Label for an information field on an SSL Certificate Dialog 
+         */
+        public static final int issued_on=0x7f050029;
+        /**  Label for an information field on an SSL Certificate Dialog 
+         */
+        public static final int issued_to=0x7f050023;
+        /**  Do not tranlsate.  Development option 
+         */
+        public static final int js_engine_flags=0x7f0500ac;
+        /**  Dialog box message 
+         */
+        public static final int loadSuspended=0x7f0500b7;
+        /**  Dialog box title 
+         */
+        public static final int loadSuspendedTitle=0x7f0500b6;
+        /**  String shown in a progress view while a video is loading, before it starts playing 
+         */
+        public static final int loading_video=0x7f0500f5;
+        /**  Field label in Bookmark dialog box: refers to URL of the page to bookmark 
+         */
+        public static final int location=0x7f050032;
+        /**  Settings screen strings 
+ Menu item to open the Settings screen 
+         */
+        public static final int menu_preferences=0x7f050068;
+        /**  Menu item for viewing downloads from the browser 
+         */
+        public static final int menu_view_download=0x7f050053;
+        /**  Field label in Bookmark dialog box: title that the user wishes to use for the bookmark 
+         */
+        public static final int name=0x7f050033;
+        /**  Name of menu item of a new tab.  Also used in the title bar when displaying a new tab 
+         */
+        public static final int new_tab=0x7f050006;
+        /**  Appears in Download history screen if there is no history 
+         */
+        public static final int no_downloads=0x7f0500dc;
         /**  When a download completes, a notification is displayed, and this
         string is used to indicate that the download successfully completed.
         Note that such a download could have been initiated by a variety of
         applications, including (but not limited to) the browser, an email
         application, a content marketplace. 
          */
-        public static final int notification_download_complete=0x7f04000e;
+        public static final int notification_download_complete=0x7f05011d;
         /**  When a download completes, a notification is displayed, and this
         string is used to indicate that the download failed.
         Note that such a download could have been initiated by a variety of
         applications, including (but not limited to) the browser, an email
         application, a content marketplace. 
          */
-        public static final int notification_download_failed=0x7f04000f;
+        public static final int notification_download_failed=0x7f05011e;
         /**  When there are three or more simultaneous outstanding downloads from a
         single application, they are displayed as a single notification,
         and the expanded notification view uses this string to indicate
@@ -61,7 +542,7 @@ public final class R {
         This is the " and [n] more" part, including the leading space, and it's
         used regardless of the number of additional downloads. 
          */
-        public static final int notification_filename_extras=0x7f04000d;
+        public static final int notification_filename_extras=0x7f05011c;
         /**  When there are multiple simultaneous outstanding downloads from a
         single application, they are displayed as a single notification,
         and the expanded notification view displays the first two download
@@ -70,21 +551,51 @@ public final class R {
         that separates the first two titles, and it's used both when there
         are exactly two and more than two titles. 
          */
-        public static final int notification_filename_separator=0x7f04000c;
+        public static final int notification_filename_separator=0x7f05011b;
+        /**  Label for a confirm button.  Used in multiple contexts. 
+         */
+        public static final int ok=0x7f050014;
+        /**  Context menu item to open the currently highlighted bookmark 
+         */
+        public static final int open_bookmark=0x7f050038;
+        /**  Context Menu item to open the selected link in a new window 
+         */
+        public static final int open_in_new_window=0x7f05004a;
+        /**  Label for an information field on an SSL Certificate Dialog 
+         */
+        public static final int org_name=0x7f050025;
+        /**  Label for an information field on an SSL Certificate Dialog 
+         */
+        public static final int org_unit=0x7f050026;
+        /**  Menu item 
+         */
+        public static final int page_info=0x7f050016;
+        /**  Page Info dialog strings 
+ Noun.  The url for the current page. Displayed on the Page Info
+            screen. 
+         */
+        public static final int page_info_address=0x7f050018;
+        /**  Label for a button on an SSL error dialog that allows the user to see
+        Page info screen for the current page 
+         */
+        public static final int page_info_view=0x7f050017;
+        /**  Prompt for an input box that allows the user to enter their password 
+         */
+        public static final int password=0x7f050010;
         /**  This is the long description of a permission associated with the
         Android Download Manager. It is displayed as part of the description
         of any application that was granted that permission.
         This specific permission allows an application to tell other
         applications that their downloads have completed. 
          */
-        public static final int permdesc_downloadCompletedIntent=0x7f040008;
+        public static final int permdesc_downloadCompletedIntent=0x7f050117;
         /**  This is the long description of a permission associated with the
         Android Download Manager. It is displayed as part of the description
         of any application that was granted that permission.
         This specific permission controls access to the Download Manager by
         applications that initiate downloads. 
          */
-        public static final int permdesc_downloadManager=0x7f040004;
+        public static final int permdesc_downloadManager=0x7f050113;
         /**  This is the long description of a permission associated with the
         Android Download Manager. It is displayed as part of the description
         of any application that was granted that permission.
@@ -93,18 +604,18 @@ public final class R {
         system applications but aren't necessary for regular applications
         that just initiate plain downloads. 
          */
-        public static final int permdesc_downloadManagerAdvanced=0x7f040006;
+        public static final int permdesc_downloadManagerAdvanced=0x7f050115;
         /**  Description for the permission to see all downloads to EXTERNAL 
          */
-        public static final int permdesc_seeAllExternal=0x7f04000a;
-        public static final int permlab_downloadCompletedIntent=0x7f040007;
+        public static final int permdesc_seeAllExternal=0x7f050119;
+        public static final int permlab_downloadCompletedIntent=0x7f050116;
         /**  This is the short description of a permission associated with the
         Android Download Manager. It is displayed as part of the description
         of any application that was granted that permission.
         This specific permission controls access to the Download Manager by
         applications that initiate downloads. 
          */
-        public static final int permlab_downloadManager=0x7f040003;
+        public static final int permlab_downloadManager=0x7f050112;
         /**  This is the short description of a permission associated with the
         Android Download Manager. It is displayed as part of the description
         of any application that was granted that permission.
@@ -113,9 +624,410 @@ public final class R {
         system applications but aren't necessary for regular applications
         that just initiate plain downloads. 
          */
-        public static final int permlab_downloadManagerAdvanced=0x7f040005;
+        public static final int permlab_downloadManagerAdvanced=0x7f050114;
         /**  Title for permission to see all downloads to EXTERNAL 
          */
-        public static final int permlab_seeAllExternal=0x7f040009;
+        public static final int permlab_seeAllExternal=0x7f050118;
+        /**  Bookmark name for Picasa website 
+         */
+        public static final int picasa=0x7f0500eb;
+        /**  Message for a dialog informing the user that the site is attempting to
+            display a popup window 
+         */
+        public static final int popup_window_attempt=0x7f0500c2;
+        /**  Settings label 
+         */
+        public static final int pref_content_autofit=0x7f050075;
+        /**  Settings summary 
+         */
+        public static final int pref_content_autofit_summary=0x7f050076;
+        /**  Settings label 
+         */
+        public static final int pref_content_block_popups=0x7f05006c;
+        /**  Settings label 
+         */
+        public static final int pref_content_homepage=0x7f050071;
+        /**  Settings label 
+         */
+        public static final int pref_content_invert_color=0x7f050079;
+        /**  Settings summary 
+         */
+        public static final int pref_content_invert_color_summary=0x7f05007a;
+        /**  Settings label 
+         */
+        public static final int pref_content_javascript=0x7f05006d;
+        /**  Settings label for enabling a mode where the browser is always set to landscape mode 
+         */
+        public static final int pref_content_landscape_only=0x7f050077;
+        /**  Settings summary 
+         */
+        public static final int pref_content_landscape_only_summary=0x7f050078;
+        /**  Settings label 
+         */
+        public static final int pref_content_load_images=0x7f05006a;
+        /**  Settings label 
+         */
+        public static final int pref_content_load_images_summary=0x7f05006b;
+        /**  Settings label 
+         */
+        public static final int pref_content_load_page=0x7f05009d;
+        /**  Settings summary 
+         */
+        public static final int pref_content_load_page_summary=0x7f05009e;
+        /**  Settings label 
+         */
+        public static final int pref_content_open_in_background=0x7f05006e;
+        /**  Settings summary 
+         */
+        public static final int pref_content_open_in_background_summary=0x7f050070;
+        /**  Settings label 
+         */
+        public static final int pref_content_plugins=0x7f05006f;
+        /**  Settings label 
+         */
+        public static final int pref_content_search_engine=0x7f050072;
+        /**  Settings summary 
+         */
+        public static final int pref_content_search_engine_summary=0x7f050073;
+        /**  Settings screen, section title 
+         */
+        public static final int pref_content_title=0x7f050069;
+        /**  Settings screen, setting option name 
+         */
+        public static final int pref_default_text_encoding=0x7f0500af;
+        public static final int pref_default_text_encoding_default=0x7f0500b1;
+        /**  Dialog box title 
+         */
+        public static final int pref_default_text_encoding_dialogtitle=0x7f0500b0;
+        /**  Settings label 
+         */
+        public static final int pref_default_zoom=0x7f05009b;
+        /**  Title of dialog for setting the default zoom 
+         */
+        public static final int pref_default_zoom_dialogtitle=0x7f05009c;
+        public static final int pref_development_error_console=0x7f0500ae;
+        /**  Do not tranlsate.  Development option 
+         */
+        public static final int pref_development_nav_dump=0x7f0500ab;
+        /**  Do not tranlsate.  Development option 
+         */
+        public static final int pref_development_normal_rendering=0x7f0500a9;
+        /**  Do not tranlsate.  Development option 
+         */
+        public static final int pref_development_single_column_rendering=0x7f0500a8;
+        /**  Title for a group of settings 
+         */
+        public static final int pref_development_title=0x7f0500a6;
+        /**  Do not tranlsate.  Development option 
+         */
+        public static final int pref_development_trace=0x7f0500aa;
+        /**  Do not tranlsate.  Development option 
+         */
+        public static final int pref_development_uastring=0x7f0500ad;
+        /**  Do not tranlsate.  Development option 
+         */
+        public static final int pref_development_viewport=0x7f0500a7;
+        /**  Settings label 
+         */
+        public static final int pref_extras_reset_default=0x7f0500a2;
+        /**  Confirmation dialog message 
+         */
+        public static final int pref_extras_reset_default_dlg=0x7f0500a4;
+        /**  Confirmation dialog title 
+         */
+        public static final int pref_extras_reset_default_dlg_title=0x7f0500a5;
+        /**  Settings summary 
+         */
+        public static final int pref_extras_reset_default_summary=0x7f0500a3;
+        /**  Settings screen, section title 
+         */
+        public static final int pref_extras_title=0x7f05009f;
+        /**  Settings label 
+         */
+        public static final int pref_extras_website_settings=0x7f0500a0;
+        /**  Settings summary 
+         */
+        public static final int pref_extras_website_settings_summary=0x7f0500a1;
+        public static final int pref_full_screen_mode=0x7f05010e;
+        /**  Settings label 
+         */
+        public static final int pref_privacy_clear_cache=0x7f05007c;
+        /**  Confirmation dialog message 
+         */
+        public static final int pref_privacy_clear_cache_dlg=0x7f05007e;
+        /**  Settings summary 
+         */
+        public static final int pref_privacy_clear_cache_summary=0x7f05007d;
+        /**  Settings label 
+         */
+        public static final int pref_privacy_clear_cookies=0x7f05007f;
+        /**  Confirmation dialog message 
+         */
+        public static final int pref_privacy_clear_cookies_dlg=0x7f050081;
+        /**  Settings summary 
+         */
+        public static final int pref_privacy_clear_cookies_summary=0x7f050080;
+        /**  Settings label 
+         */
+        public static final int pref_privacy_clear_form_data=0x7f050085;
+        /**  Confirmation dialog message 
+         */
+        public static final int pref_privacy_clear_form_data_dlg=0x7f050087;
+        /**  Settings summary 
+         */
+        public static final int pref_privacy_clear_form_data_summary=0x7f050086;
+        /**  Settings label 
+         */
+        public static final int pref_privacy_clear_geolocation_access=0x7f05008d;
+        /**  Confirmation dialog message 
+         */
+        public static final int pref_privacy_clear_geolocation_access_dlg=0x7f05008f;
+        /**  Settings summary 
+         */
+        public static final int pref_privacy_clear_geolocation_access_summary=0x7f05008e;
+        /**  Settings label 
+         */
+        public static final int pref_privacy_clear_history=0x7f050082;
+        /**  Confirmation dialog message 
+         */
+        public static final int pref_privacy_clear_history_dlg=0x7f050084;
+        /**  Settings summary 
+         */
+        public static final int pref_privacy_clear_history_summary=0x7f050083;
+        /**  Settings label 
+         */
+        public static final int pref_privacy_clear_passwords=0x7f050088;
+        /**  Confirmation dialog message 
+         */
+        public static final int pref_privacy_clear_passwords_dlg=0x7f05008a;
+        /**  Settings summary 
+         */
+        public static final int pref_privacy_clear_passwords_summary=0x7f050089;
+        /**  Settings label 
+         */
+        public static final int pref_privacy_enable_geolocation=0x7f05008b;
+        /**  Settings summary 
+         */
+        public static final int pref_privacy_enable_geolocation_summary=0x7f05008c;
+        /**  Settings screen, section title 
+         */
+        public static final int pref_privacy_title=0x7f05007b;
+        /**  Settings label 
+         */
+        public static final int pref_security_accept_cookies=0x7f050097;
+        /**  Settings summary 
+         */
+        public static final int pref_security_accept_cookies_summary=0x7f050098;
+        /**  Settings label 
+         */
+        public static final int pref_security_remember_passwords=0x7f050091;
+        /**  Settings summary 
+         */
+        public static final int pref_security_remember_passwords_summary=0x7f050092;
+        /**  Settings label 
+         */
+        public static final int pref_security_save_form_data=0x7f050093;
+        /**  Settings summary 
+         */
+        public static final int pref_security_save_form_data_summary=0x7f050094;
+        /**  Settings label 
+         */
+        public static final int pref_security_show_security_warning=0x7f050095;
+        /**  Settings summmary 
+         */
+        public static final int pref_security_show_security_warning_summary=0x7f050096;
+        /**  Settings screen, section title 
+         */
+        public static final int pref_security_title=0x7f050090;
+        public static final int pref_show_zoom_controls=0x7f05010d;
+        /**  Settings label 
+         */
+        public static final int pref_text_size=0x7f050099;
+        /**  Title of dialog for setting the text size 
+         */
+        public static final int pref_text_size_dialogtitle=0x7f05009a;
+        /**  Settings button label 
+         */
+        public static final int pref_use_current=0x7f050074;
+        public static final int pref_user_agent_dialog=0x7f050110;
+        public static final int pref_user_agent_title=0x7f05010f;
+        /**  Text in the progress dialog when we are setting an image as the home screen wallpaper. 
+         */
+        public static final int progress_dialog_setting_wallpaper=0x7f050108;
+        /**  Menu item to reload or refresh the current page. 
+         */
+        public static final int reload=0x7f05002d;
+        /**  Menu item to remove the currently highlighted bookmark
+         */
+        public static final int remove_bookmark=0x7f050039;
+        /**  Context menu item to remove a history item from bookmarks 
+         */
+        public static final int remove_from_bookmarks=0x7f05003a;
+        /**  Menu item to remove the currently highlighted history entry from the list of previously visited sites 
+         */
+        public static final int remove_history_item=0x7f05003b;
+        /**  Toast shown when a history item's star is clicked off, removing its bookmark 
+         */
+        public static final int removed_from_bookmarks=0x7f05000d;
+        /**  Part of a sentence that says "Replace <url of existing bookmark> with
+            <url of new bookmark>?" 
+         */
+        public static final int replace=0x7f050066;
+        /**  Label for a button to re-attempt downloading a file 
+         */
+        public static final int retry=0x7f0500db;
+        /**  Button label to confirm saving a bookmark. 
+         */
+        public static final int save=0x7f050030;
+        /**  Menu item that opens a dialog to save a bookmark, initialized with the current page 
+         */
+        public static final int save_to_bookmarks=0x7f050035;
+        /**  This string is for the browser "Go To" UI. 
+ This is the button label in the "Go To" UI. 
+         */
+        public static final int search_button_text=0x7f0500bf;
+        /**  This string is for the browser "Go To" UI. 
+ This is the hint text shown in the Go To widget, before text is entered. 
+         */
+        public static final int search_hint=0x7f0500be;
+        /**  This string is for the browser "Go To" UI. 
+ Do not translate.  This string is not displayed in UI (no badge is selected for go to). 
+         */
+        public static final int search_label=0x7f0500bd;
+        /**  The string used to describe the browser as a searchable item within system search settings. 
+         */
+        public static final int search_settings_description=0x7f0500c0;
+        /**  The description of the suggestion that lets the user search the web for the query currently
+         in the text field. 
+         */
+        public static final int search_the_web=0x7f0500ec;
+        /**  Title for an SSL error dialog  
+         */
+        public static final int security_warning=0x7f05001b;
+        /**  Menu item to switch to text selection mode for copy and paste. 
+         */
+        public static final int select_dot=0x7f05004d;
+        /**  Context menu item for setting the bookmark/history item as the homepage 
+         */
+        public static final int set_as_homepage=0x7f05003c;
+        /**  Menu item 
+         */
+        public static final int share_page=0x7f050055;
+        /**  Secondary name for the Activity "BrowserBookmarksPage" 
+         */
+        public static final int shortcut_bookmark=0x7f050051;
+        /**  Sign-in dialog 
+ This is used as the title of a dialog which is used to sign in to a secure site.
+            "%s1"is replaced with the host and "%s2" with realm 
+         */
+        public static final int sign_in_to=0x7f05000e;
+        /**  SSL Certificate dialogs 
+ Title for an SSL Certificate dialog 
+         */
+        public static final int ssl_certificate=0x7f050021;
+        /**  Message on an SSL Certificate dialog 
+         */
+        public static final int ssl_certificate_is_valid=0x7f050022;
+        /**  Label for a button on an SSL error dialog that lets the user continue
+            and view the page despite the error 
+         */
+        public static final int ssl_continue=0x7f05001a;
+        /**  Message in an SSL Error dialog 
+         */
+        public static final int ssl_expired=0x7f05001f;
+        /**  Message in an SSL Error dialog 
+         */
+        public static final int ssl_mismatch=0x7f05001e;
+        /**  Message in an SSL Error dialog 
+         */
+        public static final int ssl_not_yet_valid=0x7f050020;
+        /**  Message in an SSL Error dialog 
+         */
+        public static final int ssl_untrusted=0x7f05001d;
+        /**  SSL Error dialogs 
+         */
+        public static final int ssl_warnings_header=0x7f050019;
+        /**  Menu item to stop the current page from loading. 
+         */
+        public static final int stop=0x7f05002c;
+        /**  Toast informing the user that loading has stopped for the current page. 
+         */
+        public static final int stopping=0x7f05002b;
+        /**  Menu item in the page that displays all bookmarks.  Switches to a
+            list view which shows titles 
+         */
+        public static final int switch_to_list=0x7f050047;
+        /**  Menu item in the page that displays all bookmarks.  Switches to
+            a grid view which shows thumbnails 
+         */
+        public static final int switch_to_thumbnails=0x7f050046;
+        /**  Name of tab containing bookmarks 
+         */
+        public static final int tab_bookmarks=0x7f050009;
+        /**  Name of tab containing the user's complete history, organized by time of last visit 
+         */
+        public static final int tab_history=0x7f05000b;
+        /**  Name of tab containing the user's most visited websites, organized by number of visits 
+         */
+        public static final int tab_most_visited=0x7f05000a;
+        /**  Context Menu item to close the currently selected window 
+         */
+        public static final int tab_picker_remove_tab=0x7f05004f;
+        /**  Title of current windows screen; appears in title bar 
+         */
+        public static final int tab_picker_title=0x7f05004e;
+        /**  Displayed on the title bar while the page is loading 
+         */
+        public static final int title_bar_loading=0x7f050015;
+        /**  Message for a dialog informing the user that they cannot open a
+            subwindow because only one can be open at a time. 
+         */
+        public static final int too_many_subwindows_dialog_message=0x7f0500c8;
+        /**  Title for a dialog informing the user that they cannot open a subwindow
+            because only one can be open at a time. 
+         */
+        public static final int too_many_subwindows_dialog_title=0x7f0500c7;
+        /**  Message in a dialog telling the user that they cannot open any more
+            windows because the limit has been reached. 
+         */
+        public static final int too_many_windows_dialog_message=0x7f0500c6;
+        /**  Title for a dialog informing the user that they cannot open any more
+            windows because the limit has been reached. 
+         */
+        public static final int too_many_windows_dialog_title=0x7f0500c5;
+        /**  Prompt for an input box that allows the user to enter their login name 
+         */
+        public static final int username=0x7f05000f;
+        /**  Label for an information field on an SSL Certificate Dialog 
+         */
+        public static final int validity_period=0x7f050028;
+        /**  Label for a button on an SSL error dialog that lets the user view the
+        certificate 
+         */
+        public static final int view_certificate=0x7f05001c;
+        /**  Label for the menu item in the website settings activity used to clear data stored by all websites 
+         */
+        public static final int website_settings_clear_all=0x7f050103;
+        public static final int website_settings_clear_all_dialog_cancel_button=0x7f050107;
+        public static final int website_settings_clear_all_dialog_message=0x7f050105;
+        public static final int website_settings_clear_all_dialog_ok_button=0x7f050106;
+        public static final int website_settings_clear_all_dialog_title=0x7f050104;
+        public static final int webstorage_clear_data_dialog_cancel_button=0x7f0500f3;
+        public static final int webstorage_clear_data_dialog_message=0x7f0500f1;
+        public static final int webstorage_clear_data_dialog_ok_button=0x7f0500f2;
+        /**  Confirmation dialog when the user ask to clear all data for an origin 
+         */
+        public static final int webstorage_clear_data_dialog_title=0x7f0500f0;
+        /**  Used in the Browser Settings 
+         */
+        public static final int webstorage_clear_data_title=0x7f0500ef;
+        /**  Strings used in the summary of origins 
+         */
+        public static final int webstorage_origin_summary_mb_stored=0x7f0500f4;
+        public static final int webstorage_outofspace_notification_text=0x7f0500ee;
+        /**  HTML5 dialogs 
+ Used as a status bar notification when the browser is running out of space trying to allocate or increase the database quota for an HTML5 databae or application cache. 
+         */
+        public static final int webstorage_outofspace_notification_title=0x7f0500ed;
     }
 }
