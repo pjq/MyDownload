@@ -271,10 +271,8 @@ public class MyDownload extends Activity implements OnClickListener {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
 		switch (keyCode) {
-		case KeyEvent.KEYCODE_BACK:			
-			stopDownloadService();
-			finish();
-			Process.killProcess(Process.myPid());
+		case KeyEvent.KEYCODE_BACK:
+			exitUI();
 			break;
 
 		default:
@@ -284,6 +282,10 @@ public class MyDownload extends Activity implements OnClickListener {
 		return super.onKeyDown(keyCode, event);
 	}
 
+	/**
+	 * Stop {@link DownloadService},it will cancelAll notification,and stopSelf.
+	 * @see #killProcessInDownloadService()
+	 */
 	public void stopDownloadService() {
 		Intent intent = new Intent();
 		intent.setClass(this, DownloadService.class);
@@ -291,10 +293,32 @@ public class MyDownload extends Activity implements OnClickListener {
 		startService(intent);
 	}
 	
+	/**
+	 * Kill process in {@link DownloadService},it cancelAll notification,stopSelf,then kill process.
+	 * @see #stopDownloadService()
+	 */
+	public void killProcessInDownloadService() {
+		Intent intent = new Intent();
+		intent.setClass(this, DownloadService.class);
+		intent.setAction(DownloadActions.ACTION_KILL_PROCESS);
+		startService(intent);
+	}
+
+	/**
+	 * Start {@link DownloadService}
+	 */
 	public void startDownloadService() {
 		Intent intent = new Intent();
-		intent.setClass(this, DownloadService.class);		
+		intent.setClass(this, DownloadService.class);
 		startService(intent);
+	}
+
+	private void exitUI() {
+		// TODO Auto-generated method stub
+		//stopDownloadService();
+		killProcessInDownloadService();
+		finish();
+		//Process.killProcess(Process.myPid());
 	}
 
 }

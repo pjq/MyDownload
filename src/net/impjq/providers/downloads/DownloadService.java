@@ -177,7 +177,15 @@ public class DownloadService extends Service {
 		}
         
         if (action.equals(DownloadActions.ACTION_STOP_DOWNLOADSERVICE)) {
+        	  if (Constants.LOGVV) {
+                  Log.v(Constants.TAG, "ACTION_STOP_DOWNLOADSERVICE");
+              }
+        	mNotifier.mNotificationMgr.cancelAll();
 			stopSelf();
+		}else if (action.equals(DownloadActions.ACTION_KILL_PROCESS)) {
+			mNotifier.mNotificationMgr.cancelAll();
+			stopSelf();
+			Process.killProcess(Process.myPid());			
 		}
     }
 
