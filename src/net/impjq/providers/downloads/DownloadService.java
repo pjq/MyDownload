@@ -167,8 +167,18 @@ public class DownloadService extends Service {
         if (Constants.LOGVV) {
             Log.v(Constants.TAG, "Service onStart");
         }
-
+        
         updateFromProvider();
+        
+        //Add by Percy,add some special actions here,such as stop service.
+        String action=intent.getAction();        
+        if (null==action) {
+        	return;			
+		}
+        
+        if (action.equals(DownloadActions.ACTION_STOP_DOWNLOADSERVICE)) {
+			stopSelf();
+		}
     }
 
     /**

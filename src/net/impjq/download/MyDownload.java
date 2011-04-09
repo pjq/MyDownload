@@ -11,6 +11,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import net.impjq.download.DownloadManager.DownloadProgressListener;
 import net.impjq.providers.downloads.Constants;
+import net.impjq.providers.downloads.DownloadActions;
+import net.impjq.providers.downloads.DownloadService;
 import net.impjq.providers.downloads.Downloads;
 
 import android.app.Activity;
@@ -19,6 +21,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.http.AndroidHttpClient;
 import android.os.Bundle;
+import android.os.Process;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -46,6 +50,7 @@ public class MyDownload extends Activity implements OnClickListener {
 		mContext = this;
 
 		init();
+		startDownloadService();
 	}
 
 	private void init() {
@@ -83,7 +88,7 @@ public class MyDownload extends Activity implements OnClickListener {
 
 		switch (id) {
 		case R.id.start_download_button: {
-			startDownload();	
+			startDownload();
 
 			break;
 		}
@@ -104,7 +109,7 @@ public class MyDownload extends Activity implements OnClickListener {
 		}
 
 		case R.id.show_download_list_button: {
-			showDownloadList();		
+			showDownloadList();
 			break;
 		}
 
@@ -112,12 +117,12 @@ public class MyDownload extends Activity implements OnClickListener {
 			break;
 		}
 	}
-	
+
 	private void showDownloadList() {
 		// TODO Auto-generated method stub
 		Intent intent = new Intent();
 		intent.setClass(this, DownloadPage.class);
-		startActivity(intent);		
+		startActivity(intent);
 	}
 
 	DownloadProgressListener mDownloadProgressListener;
@@ -260,6 +265,36 @@ public class MyDownload extends Activity implements OnClickListener {
 		};
 
 		return downloadProgressListener;
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		switch (keyCode) {
+		case KeyEvent.KEYCODE_BACK:			
+			stopDownloadService();
+			finish();
+			Process.killProcess(Process.myPid());
+			break;
+
+		default:
+			break;
+		}
+
+		return super.onKeyDown(keyCode, event);
+	}
+
+	public void stopDownloadService() {
+		Intent intent = new Intent();
+		intent.setClass(this, DownloadService.class);
+		intent.setAction(DownloadActions.ACTION_STOP_DOWNLOADSERVICE);
+		startService(intent);
+	}
+	
+	public void startDownloadService() {
+		Intent intent = new Intent();
+		intent.setClass(this, DownloadService.class);		
+		startService(intent);
 	}
 
 }
