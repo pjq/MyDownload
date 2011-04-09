@@ -3,6 +3,7 @@
     <string name="hello"></string>
     <string name="app_name">MyDownload</string>     
     
+     <string name="show_download_list">Show download list</string>     
     
     <string name="download_menu_pause">Pause download</string> 
     <string name="download_menu_resume">Resume download</string> 

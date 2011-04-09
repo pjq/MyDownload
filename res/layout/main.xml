@@ -18,20 +18,29 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"></Button>
 	<Button
+		android:text="@string/show_download_list"
+		android:id="@+id/show_download_list_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:visibility="visible"></Button>
+	<Button
 		android:text="Cancel"
 		android:id="@+id/cancel_download_button"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"></Button>
+		android:layout_height="wrap_content"
+		android:visibility="invisible"></Button>
 	<Button
 		android:text="Pause"
 		android:id="@+id/pause_download_button"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"></Button>
+		android:layout_height="wrap_content"
+		android:visibility="invisible"></Button>
 	<Button
 		android:text="Resume"
 		android:id="@+id/resume_download_button"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"></Button>
+		android:layout_height="wrap_content"
+		android:visibility="invisible"></Button>
 	<ProgressBar
 		android:id="@+id/download_progress_bar"
 		style="?android:attr/progressBarStyleHorizontal"
@@ -39,5 +48,6 @@
 		android:layout_height="wrap_content"
 		android:max="100"
 		android:progress="0"
-		android:secondaryProgress="0" />
+		android:secondaryProgress="0"
+		android:visibility="invisible" />
 </LinearLayout>

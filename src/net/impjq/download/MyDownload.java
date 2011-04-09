@@ -26,230 +26,240 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 public class MyDownload extends Activity implements OnClickListener {
-    private static final String TAG = MyDownload.class.getSimpleName();
+	private static final String TAG = MyDownload.class.getSimpleName();
 
-    Context mContext;
-    EditText mUrlInputEditText;
-    Button mStartDownloadButton;
-    Button mCancelButton;
-    Button mPauseButton;
-    Button mResumeButton;
-    ProgressBar mDownloadProgressBar;
-    DownloadManager mDownloadManager;
+	Context mContext;
+	EditText mUrlInputEditText;
+	Button mStartDownloadButton;
+	Button mCancelButton;
+	Button mPauseButton;
+	Button mResumeButton;
+	ProgressBar mDownloadProgressBar;
+	DownloadManager mDownloadManager;
+	Button mShowDownloadListButton;
 
-    @Override
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-	    // TODO Auto-generated method stub
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.main);
-	    mContext = this;
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		mContext = this;
 
-	    init();
+		init();
 	}
 
-    private void init() {
-	// TODO Auto-generated method stub
+	private void init() {
+		// TODO Auto-generated method stub
 
-	mUrlInputEditText = (EditText) findViewById(R.id.url_input_edittext);
-	mStartDownloadButton = (Button) findViewById(R.id.start_download_button);
-	mCancelButton = (Button) findViewById(R.id.cancel_download_button);
-	mPauseButton = (Button) findViewById(R.id.pause_download_button);
-	mResumeButton = (Button) findViewById(R.id.resume_download_button);
-	mDownloadProgressBar = (ProgressBar) findViewById(R.id.download_progress_bar);
+		mUrlInputEditText = (EditText) findViewById(R.id.url_input_edittext);
+		mStartDownloadButton = (Button) findViewById(R.id.start_download_button);
+		mCancelButton = (Button) findViewById(R.id.cancel_download_button);
+		mPauseButton = (Button) findViewById(R.id.pause_download_button);
+		mResumeButton = (Button) findViewById(R.id.resume_download_button);
+		mDownloadProgressBar = (ProgressBar) findViewById(R.id.download_progress_bar);
+		mShowDownloadListButton = (Button) findViewById(R.id.show_download_list_button);
 
-	mStartDownloadButton.setOnClickListener(this);
-	mCancelButton.setOnClickListener(this);
-	mPauseButton.setOnClickListener(this);
-	mResumeButton.setOnClickListener(this);
+		mStartDownloadButton.setOnClickListener(this);
+		mCancelButton.setOnClickListener(this);
+		mPauseButton.setOnClickListener(this);
+		mResumeButton.setOnClickListener(this);
+		mShowDownloadListButton.setOnClickListener(this);
 
-	mUrlInputEditText
-	    .setText("http://tools.impjq.net/Dropbox%201.0.10.exe");
-	mUrlInputEditText
-			.setText("http://ftp.sjtu.edu.cn/archlinux/core/os/i686/gcc-4.5.2-6-i686.pkg.tar.xz");
+		mUrlInputEditText
+				.setText("http://tools.impjq.net/Dropbox%201.0.10.exe");
+		mUrlInputEditText
+				.setText("http://ftp.sjtu.edu.cn/archlinux/core/os/i686/gcc-4.5.2-6-i686.pkg.tar.xz");
 
-	mDownloadProgressListener = createDownloadProgressListener();
-	mDownloadManager = new DownloadManager(mContext);
-	mDownloadManager.setDownloadProgressListener(mDownloadProgressListener);
-    }
+		mDownloadProgressListener = createDownloadProgressListener();
+		mDownloadManager = new DownloadManager(mContext);
+		mDownloadManager.setDownloadProgressListener(mDownloadProgressListener);
+	}
 
-    @Override
+	@Override
 	public void onClick(View v) {
-	    // TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 
-	    int id = v.getId();
+		int id = v.getId();
 
-	    switch (id) {
+		switch (id) {
 		case R.id.start_download_button: {
-						     startDownload();
-						     Intent intent=new Intent();
-						     intent.setClass(this, DownloadPage.class);
-						     startActivity(intent);
+			startDownload();	
 
-						     break;
+			break;
 		}
 
-		case R.id.cancel_download_button:{
-						     mDownloadManager.cancelDownload();
-						     break;
+		case R.id.cancel_download_button: {
+			mDownloadManager.cancelDownload();
+			break;
 		}
 
-		case R.id.pause_download_button:{
-						    mDownloadManager.pauseDownload();
-						    break;
+		case R.id.pause_download_button: {
+			mDownloadManager.pauseDownload();
+			break;
 		}
 
-		case R.id.resume_download_button:{
-						     mDownloadManager.resumeDownload();		
-						     break;		
+		case R.id.resume_download_button: {
+			mDownloadManager.resumeDownload();
+			break;
+		}
+
+		case R.id.show_download_list_button: {
+			showDownloadList();		
+			break;
 		}
 
 		default:
-						 break;
-	    }
-
-	}
-
-    DownloadProgressListener mDownloadProgressListener;
-
-    long mDataID;
-
-    private void startDownload() {
-	// TODO Auto-generated method stub
-
-
-	String url = mUrlInputEditText.getText().toString();
-
-	mDownloadManager.insertDownload(url, null);
-    }
-
-    private void start() {
-	new Thread(new Runnable() {
-
-	    @Override
-	    public void run() {
-		// TODO Auto-generated method stub
-		Utils.log(TAG, "start download....");
-		AndroidHttpClient client = null;
-		client = AndroidHttpClient.newInstance(userAgent(), mContext);
-		DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-		HttpGet request = new HttpGet("http://www.baidu.com/");
-		try {
-		    HttpResponse response = client.execute(request);
-		    StatusLine statusLine = response.getStatusLine();
-		    Utils.log(TAG, "status code=" + statusLine.getStatusCode());
-		} catch (IOException e) {
-		    // TODO Auto-generated catch block
-		    e.printStackTrace();
+			break;
 		}
-	    }
-	}).start();
-
-    }
-
-    /**
-     * Returns the user agent provided by the initiating app, or use the default
-     * one
-     */
-    private String userAgent() {
-	String userAgent = null;
-	if (userAgent != null) {
 	}
-	if (userAgent == null) {
-	    userAgent = "Mozilla/5.0 (X11; U; Linux i686; zh-CN; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13";
+	
+	private void showDownloadList() {
+		// TODO Auto-generated method stub
+		Intent intent = new Intent();
+		intent.setClass(this, DownloadPage.class);
+		startActivity(intent);		
 	}
-	return userAgent;
-    }
 
-    /**
-     * Create the DownloadProgressListener,You can do everythin you want in the
-     * override methord: {@link DownloadProgressListener#onChange}
-     * 
-     * @return downloadProgressListener
-     */
-    public net.impjq.download.DownloadManager.DownloadProgressListener createDownloadProgressListener() {
-	DownloadProgressListener downloadProgressListener = null;
+	DownloadProgressListener mDownloadProgressListener;
 
-	downloadProgressListener = new DownloadProgressListener() {
+	long mDataID;
 
-	    private int mIdColumnId;
-
-	    private int mTitleColumnId;
-
-	    private int mFilenameColumnId;
-
-	    private int mDescColumnId;
-
-	    private int mStatusColumnId;
-
-	    private int mTotalBytesColumnId;
-
-	    private int mCurrentBytesColumnId;
-
-	    private int mMimetypeColumnId;
-
-	    private int mDateColumnId;
-
-	    public void onChange(Cursor c) {
+	private void startDownload() {
 		// TODO Auto-generated method stub
 
-		mIdColumnId = c.getColumnIndexOrThrow(Downloads._ID);
-		mFilenameColumnId = c.getColumnIndexOrThrow(Downloads._DATA);
-		mTitleColumnId = c
-		    .getColumnIndexOrThrow(Downloads.COLUMN_TITLE);
-		mDescColumnId = c
-		    .getColumnIndexOrThrow(Downloads.COLUMN_DESCRIPTION);
-		mStatusColumnId = c
-		    .getColumnIndexOrThrow(Downloads.COLUMN_STATUS);
-		mTotalBytesColumnId = c
-		    .getColumnIndexOrThrow(Downloads.COLUMN_TOTAL_BYTES);
-		mCurrentBytesColumnId = c
-		    .getColumnIndexOrThrow(Downloads.COLUMN_CURRENT_BYTES);
-		mMimetypeColumnId = c
-		    .getColumnIndexOrThrow(Downloads.COLUMN_MIME_TYPE);
-		mDateColumnId = c
-		    .getColumnIndexOrThrow(Downloads.COLUMN_LAST_MODIFICATION);
+		String url = mUrlInputEditText.getText().toString();
 
-		if (c.moveToFirst()) {
-		    do {
-			String filename = c.getString(mFilenameColumnId);
-			String title = c.getString(mTitleColumnId);
-			String desc = c.getString(mDescColumnId);
-			String status = c.getString(mStatusColumnId);
-			Long currentBytes = c.getLong(mCurrentBytesColumnId);
-			Long totalBytes = c.getLong(mTotalBytesColumnId);
-			String mimeType = c.getString(mMimetypeColumnId);
-			long time = c.getLong(mDateColumnId);
-			Date d = new Date(time);
-			DateFormat df = DateFormat
-			    .getDateInstance(DateFormat.SHORT);
-			String date = df.format(d);
+		mDownloadManager.insertDownload(url, null);
+	}
 
-			// Get the Downloads._ID,use it when cancel the download
-			// process ,and delete the download uri.
-			mDataID = c.getLong(mIdColumnId);
+	private void start() {
+		new Thread(new Runnable() {
 
-			if (0 >= totalBytes) {
-			    mDownloadProgressBar.setProgress(0);
-			} else {
-			    int percent = (int) (currentBytes * 100 / totalBytes);
-			    mDownloadProgressBar.setProgress(percent);
-
-			    if (100 == percent) {
-			    }
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Utils.log(TAG, "start download....");
+				AndroidHttpClient client = null;
+				client = AndroidHttpClient.newInstance(userAgent(), mContext);
+				DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
+				HttpGet request = new HttpGet("http://www.baidu.com/");
+				try {
+					HttpResponse response = client.execute(request);
+					StatusLine statusLine = response.getStatusLine();
+					Utils.log(TAG, "status code=" + statusLine.getStatusCode());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
+		}).start();
 
-			Utils.log(TAG, "Filename=" + filename + ",title="
-				+ title + "\n desc=" + desc + ", status="
-				+ status + ",totalBytes=" + totalBytes
-				+ "\n currentBytes=" + currentBytes
-				+ ",mimeType=" + mimeType + "\n date=" + date
-				+ ",mIdColumnId=" + mIdColumnId);
-		    } while (c.moveToNext());
+	}
+
+	/**
+	 * Returns the user agent provided by the initiating app, or use the default
+	 * one
+	 */
+	private String userAgent() {
+		String userAgent = null;
+		if (userAgent != null) {
 		}
-	    }
-	};
+		if (userAgent == null) {
+			userAgent = "Mozilla/5.0 (X11; U; Linux i686; zh-CN; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13";
+		}
+		return userAgent;
+	}
 
-	return downloadProgressListener;
-    }
+	/**
+	 * Create the DownloadProgressListener,You can do everythin you want in the
+	 * override methord: {@link DownloadProgressListener#onChange}
+	 * 
+	 * @return downloadProgressListener
+	 */
+	public net.impjq.download.DownloadManager.DownloadProgressListener createDownloadProgressListener() {
+		DownloadProgressListener downloadProgressListener = null;
+
+		downloadProgressListener = new DownloadProgressListener() {
+
+			private int mIdColumnId;
+
+			private int mTitleColumnId;
+
+			private int mFilenameColumnId;
+
+			private int mDescColumnId;
+
+			private int mStatusColumnId;
+
+			private int mTotalBytesColumnId;
+
+			private int mCurrentBytesColumnId;
+
+			private int mMimetypeColumnId;
+
+			private int mDateColumnId;
+
+			public void onChange(Cursor c) {
+				// TODO Auto-generated method stub
+
+				mIdColumnId = c.getColumnIndexOrThrow(Downloads._ID);
+				mFilenameColumnId = c.getColumnIndexOrThrow(Downloads._DATA);
+				mTitleColumnId = c
+						.getColumnIndexOrThrow(Downloads.COLUMN_TITLE);
+				mDescColumnId = c
+						.getColumnIndexOrThrow(Downloads.COLUMN_DESCRIPTION);
+				mStatusColumnId = c
+						.getColumnIndexOrThrow(Downloads.COLUMN_STATUS);
+				mTotalBytesColumnId = c
+						.getColumnIndexOrThrow(Downloads.COLUMN_TOTAL_BYTES);
+				mCurrentBytesColumnId = c
+						.getColumnIndexOrThrow(Downloads.COLUMN_CURRENT_BYTES);
+				mMimetypeColumnId = c
+						.getColumnIndexOrThrow(Downloads.COLUMN_MIME_TYPE);
+				mDateColumnId = c
+						.getColumnIndexOrThrow(Downloads.COLUMN_LAST_MODIFICATION);
+
+				if (c.moveToFirst()) {
+					do {
+						String filename = c.getString(mFilenameColumnId);
+						String title = c.getString(mTitleColumnId);
+						String desc = c.getString(mDescColumnId);
+						String status = c.getString(mStatusColumnId);
+						Long currentBytes = c.getLong(mCurrentBytesColumnId);
+						Long totalBytes = c.getLong(mTotalBytesColumnId);
+						String mimeType = c.getString(mMimetypeColumnId);
+						long time = c.getLong(mDateColumnId);
+						Date d = new Date(time);
+						DateFormat df = DateFormat
+								.getDateInstance(DateFormat.SHORT);
+						String date = df.format(d);
+
+						// Get the Downloads._ID,use it when cancel the download
+						// process ,and delete the download uri.
+						mDataID = c.getLong(mIdColumnId);
+
+						if (0 >= totalBytes) {
+							mDownloadProgressBar.setProgress(0);
+						} else {
+							int percent = (int) (currentBytes * 100 / totalBytes);
+							mDownloadProgressBar.setProgress(percent);
+
+							if (100 == percent) {
+							}
+						}
+
+						Utils.log(TAG, "Filename=" + filename + ",title="
+								+ title + "\n desc=" + desc + ", status="
+								+ status + ",totalBytes=" + totalBytes
+								+ "\n currentBytes=" + currentBytes
+								+ ",mimeType=" + mimeType + "\n date=" + date
+								+ ",mIdColumnId=" + mIdColumnId);
+					} while (c.moveToNext());
+				}
+			}
+		};
+
+		return downloadProgressListener;
+	}
 
 }
