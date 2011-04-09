@@ -88,7 +88,9 @@ public class DownloadPage extends ExpandableListActivity {
                 Downloads.Impl.COLUMN_LAST_MODIFICATION,
                 Downloads.Impl.COLUMN_VISIBILITY,
                 Downloads.Impl._DATA,
-                Downloads.Impl.COLUMN_MIME_TYPE},
+                Downloads.Impl.COLUMN_MIME_TYPE,
+                //Add by Percy,add control,20110409
+                Downloads.Impl.COLUMN_CONTROL},
                 null,null, Downloads.Impl.COLUMN_LAST_MODIFICATION + " DESC");
         
         // only attach everything to the listbox if we can access
@@ -341,7 +343,8 @@ public class DownloadPage extends ExpandableListActivity {
             menu.setHeaderTitle(mDownloadCursor.getString(mTitleColumnId));
             
             MenuInflater inflater = getMenuInflater();
-            int status = mDownloadCursor.getInt(mStatusColumnId);
+            int status = mDownloadCursor.getInt(mStatusColumnId);   
+        
             if (Downloads.Impl.isStatusSuccess(status)) {
                 inflater.inflate(R.menu.downloadhistorycontextfinished, menu);
             } else if (Downloads.Impl.isStatusError(status)) {
@@ -363,9 +366,46 @@ public class DownloadPage extends ExpandableListActivity {
                         mContentObserver);
                 inflater.inflate(R.menu.downloadhistorycontextrunning, menu);
             }
+            
+            //Add by Percy,show or hide pause/resume item according to the COLUMN_CONTROL,20110409
+            switchPauseOrHideMode(mDownloadCursor, menu);
         }
         super.onCreateContextMenu(menu, v, menuInfo);
     }
+    
+   //Add by Percy,show or hide pause/resume item according to the COLUMN_CONTROL,20110409
+    /**
+     * Switch pause mode or resume.
+     */
+    private void switchPauseOrHideMode(Cursor cursor,Menu menu) {
+		// TODO Auto-generated method stub    	
+        
+        int controlColumnId=cursor.getColumnIndexOrThrow(Downloads.Impl.COLUMN_CONTROL);
+        int control=cursor.getInt(controlColumnId);
+        
+        if (Downloads.Impl.CONTROL_PAUSED==control) {
+        	MenuItem resumeItem = menu.findItem(R.id.download_menu_resume);
+        	if (null != resumeItem) {
+        		resumeItem.setVisible(true);					
+			}
+        	
+        	MenuItem pauseItem = menu.findItem(R.id.download_menu_pause);
+			if (null!=pauseItem) {
+				pauseItem.setVisible(false);
+			}	
+        	
+		}else {
+		   	MenuItem resumeItem = menu.findItem(R.id.download_menu_resume);
+        	if (null != resumeItem) {
+        		resumeItem.setVisible(false);					
+			}
+        	
+        	MenuItem pauseItem = menu.findItem(R.id.download_menu_pause);
+			if (null!=pauseItem) {
+				pauseItem.setVisible(true);
+			}				
+		}
+	}
 
     /**
      * This function is called to check the status of the download and if it

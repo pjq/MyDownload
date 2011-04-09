@@ -64,8 +64,8 @@ public class MyDownload extends Activity implements OnClickListener {
 
 	mUrlInputEditText
 	    .setText("http://tools.impjq.net/Dropbox%201.0.10.exe");
-	//mUrlInputEditText
-	//		.setText("http://v.youku.com/v_show/id_XMjM5MDgyNDEy.html");
+	mUrlInputEditText
+			.setText("http://ftp.sjtu.edu.cn/archlinux/core/os/i686/gcc-4.5.2-6-i686.pkg.tar.xz");
 
 	mDownloadProgressListener = createDownloadProgressListener();
 	mDownloadManager = new DownloadManager(mContext);
